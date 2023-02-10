@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content1 %}
+<h2> {{user.email}} Please Update Your Todo List</h2>
+{% endblock %}
+  {% block content %}
+
+
+  <div class="container pt-4">
+    <div class="col-lg-4 mx-auto shadow p-0 mt-4">
+      <div class="alert alert-info">
+        <h2>Update Todo</h2>
+      </div>
+      <div class="p-4">
+        <form action="" method="POST" novalidate>
+          {% csrf_token %}
+          {% if form.non_field_errors %}
+          <p>{{error}}<p>
+          {% endif %}
+        {% for fm in form %}
+        {{fm.label_tag}}  {{fm}}   {{fm.errors|striptags}} <br> <br>
+        {% endfor %}
+          <hr>
+          <input type="submit" value="update" class="btn btn-info">
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

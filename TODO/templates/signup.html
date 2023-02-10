@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content3 %}
+<li class="nav-item">
+  <b><h4> <a class="nav-link" href="/login">Login</a></h4></b>
+</li>
+{% endblock %}
+{% block content1 %}
+<div>
+<!--  <nav class="navbar navbar-light bg-light">-->
+<!--<h2> Please Do Register In  Your Todo App.</h2>-->
+<!--  </nav>-->
+  </div>
+{% endblock %}
+{% block content %}
+
+ <div class="containter pt-4">
+  <div class="col-lg-5 shadow  mx-auto p-0">
+    <div class="alert alert-success">
+      <h2>Create Account</h2>
+    </div>
+    <div class="p-4">
+      <form method="post" action="/signup/">
+        {% csrf_token %}
+          {{form.as_p}}
+<!--        {% if form.non_field_errors %}-->
+<!--        <p>{{error}}<p>-->
+<!--        {% endif %}-->
+<!--      {% for fm in form %}-->
+<!--      {{fm.label_tag}}  {{fm}}   {{fm.errors|striptags}} <br> <br>-->
+<!--      {% endfor %}-->
+        <hr>
+        <input class="btn btn-success" onclick="my_validation()" type="submit" value="Create Account">
+      </form>
+    </div>
+  </div>
+</div> 
+{% endblock %}
+{% comment %} {% extends 'base.html' %}
+{% block content1 %}
+<h2> Please Do Register In  Your Todo App.</h2>
+{% endblock %}
+{% block content %}
+
+
+
+ <div class="containter pt-4">
+  <div class="col-lg-5 shadow  mx-auto p-0">
+    <div class="alert alert-success">
+      <h2>Create Account</h2>
+    </div>
+    <div class="p-4">
+      <form method="post" onsubmit="return my_validation()"  action="/signup/" >
+        {% csrf_token %}
+        {% comment %} {% if form.non_field_errors %}
+        <p>{{error}}<p>
+        {% endif %} {% endcomment %}
+      {% comment %} {% for fm in form %}
+      {{fm.label_tag}}  {{fm}}   {{fm.errors|striptags}} <br> <br>
+      {% endfor %} {% endcomment %}
+       {% comment %} email <input type="text" name="email" id="textemail" placeholder="Enter Email" required="" /><br><br>
+       password <input type="password" name="password" id="textpass1" placeholder="Password" required="" /><br><br>
+       password (Again) <input type="password" name="password2" id="textpass2" placeholder="Confirm Ur Password" required="" />
+        <hr>
+        <input class="btn btn-success" type="submit" id="validate"  value="Create Account" />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+ {% endcomment %}

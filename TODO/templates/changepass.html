@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content1 %}
+<h2> {{user.email}} Please Change Your Password</h2>
+
+{% endblock %}
+  {% block content %}
+
+  <div class="container pt-4">
+    <div class="col-lg-4 mx-auto shadow p-0 mt-4">
+      <div class="alert alert-info">
+
+      </div>
+      <div class="p-4">
+        <form action="" method="POST" >
+          {% csrf_token %}
+          {% if form.non_field_errors %}
+            <p>{{error}}<p>
+            {% endif %}
+          {% for fm in form %}
+          {{fm.label_tag}}  {{fm}}   {{fm.errors|striptags}} <br> <br>
+          {% endfor %}
+          <hr>
+          <input type="submit" value="save" class="btn btn-info">
+
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
